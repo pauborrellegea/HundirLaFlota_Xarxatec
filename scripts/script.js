@@ -1,0 +1,1 @@
+//funcion para crear tablas con document.createElement("tr") en el document.querySelector(#tableroJugador)

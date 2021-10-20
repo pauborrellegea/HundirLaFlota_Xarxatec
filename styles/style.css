@@ -15,12 +15,11 @@ table{
 .tablero{
     background-color:cadetblue;
     display:grid;
-    grid-template-rows: auto;
-    gap: 10px;
+    grid-template-columns: auto 2fr;
 }
 #tableroJugador{
     grid-row: 1;
 }
 #tableroComputadora{
-    grid-row: 1/2;
+    grid-row: 2;
 }
