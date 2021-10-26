@@ -12,6 +12,21 @@ td:hover{
 table{
     margin: 5rem;
 }
+a{
+    margin: auto;
+}
+.logo{
+    width:4em;
+    height:3em;
+}
+.logoHundir{
+    display: flex;
+    justify-content: space-around;
+}
+.github{
+    width:3em;
+    height:3em;
+}
 .tablero{
     background-color:cadetblue;
     display:grid;
@@ -22,4 +37,24 @@ table{
 }
 #tableroComputadora{
     grid-row: 2;
+}
+.contenedorJugar{
+    width: 100%;
+    filter: blur(6px);
+}
+#boxJugar{
+    width: 40em;
+    height: 30em;
+    position: absolute;
+    margin: 0 auto;
+    left: 30%;
+    top: 25%;
+    background-color: rgb(228, 225, 225);
+    z-index: 1;
+    border: 1px solid darkblue;
+    border-radius: 2em;
+    align-content:space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
