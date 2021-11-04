@@ -1,6 +1,6 @@
 class Barcos{
 
-    // Portaviones 5 - Acorazado 4 - Submarino 3 - Barco Normal 2    
+    // Portaviones 4 - Acorazado 3 - Submarino 2 - Barco Normal 1    
     constructor(longitud, posicionInicial, posicionFinal, indicador)
     {
         this.longitud = longitud;
