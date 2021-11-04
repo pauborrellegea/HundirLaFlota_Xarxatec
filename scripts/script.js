@@ -1,5 +1,5 @@
 //funcion para crear tablas con document.createElement("tr") en el document.querySelector(#tableroJugador)
-import Barcos from "./barcos";
+import Barcos from "./barcos.js";
 
 
 var vidaJugador = 14;
