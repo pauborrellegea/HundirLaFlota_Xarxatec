@@ -10,4 +10,4 @@ class Barcos{
     }
 
 
-}
+}export default Barcos;
