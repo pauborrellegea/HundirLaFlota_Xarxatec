@@ -3,11 +3,16 @@ td{
     height: 50px;
     border: solid 1px black;
     text-align: center;
+    box-sizing:border-box;
     
 }
 td:hover{
     background-color: #dbdbdb;
     cursor: pointer;
+}
+.explota{
+    width:inherit;
+
 }
 table{
     margin: 5rem;
@@ -40,7 +45,7 @@ a{
 }
 .contenedorJugar{
     width: 100%;
-    filter: blur(6px);
+    /* filter: blur(6px); */
 }
 #boxJugar{
     width: 40em;
