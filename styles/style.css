@@ -10,9 +10,16 @@ td:hover{
     background-color: #dbdbdb;
     cursor: pointer;
 }
+td.barco:hover{
+    background-color: blue;
+}
 .explota{
     width:inherit;
+    pointer-events: none;
+}
 
+.barco{
+    background-color:blue;
 }
 table{
     margin: 5rem;
@@ -21,8 +28,7 @@ a{
     margin: auto;
 }
 .logo{
-    width:4em;
-    height:3em;
+    width: 8em;
 }
 .logoHundir{
     display: flex;
