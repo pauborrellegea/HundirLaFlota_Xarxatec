@@ -22,7 +22,7 @@ td.barco:hover{
     background-color:blue;
 }
 table{
-    margin: 5rem;
+    margin: 2rem;
 }
 a{
     margin: auto;
@@ -43,16 +43,12 @@ a{
 }
 #tableroJugador{
     float: left;
-    width: 35%;
 }
 #tableroComputadora{
     float: left;
-    width: 35%;
 }
 .contenedorJugar{
-    width: 100%;
-    float: left;
-    
+    width: 100%;  
 }
 .enfoque{
     filter: blur(6px);
@@ -94,3 +90,10 @@ ul li:first-child {
     color: green;
     font-weight: bold;
   }
+.tamanyoTableros>div{
+    text-align: center;
+}
+#contenedorTableros{
+    display: flex;
+    justify-content: space-around;
+}

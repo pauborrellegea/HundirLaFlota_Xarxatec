@@ -1,5 +1,5 @@
 //funcion para crear tablas con document.createElement("tr") en el document.querySelector(#tableroJugador)
-//En la pantalla de selección de barcos, hacer un remove child de Ul->Li para pillar la primera posición
+//En la pantalla de selección de barcos, hacer un remove child de Ul->Li para pillar la primera posición. Habilitar el boton de Siguiente cuando se haya terminado de colocar cada barco.
 
 
 import Barcos from "./barcos.js";
