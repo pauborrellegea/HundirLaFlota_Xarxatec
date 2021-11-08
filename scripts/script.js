@@ -40,6 +40,7 @@ function crearTabla(rows,cajaTabla){
         for(let j=0;j<10;j++){
             const td = document.createElement("td"); 
             td.appendChild(document.createTextNode('X'))
+            td.setAttribute('id','x'+i+'y'+j)
             tr.appendChild(td);
         }
     }
