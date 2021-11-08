@@ -20,8 +20,151 @@
       
   </nav>
   
-    <div id="boxJugar"><button class="btn btn-danger" id="botonJugar">Jugar!</button></div>
+  <div id="contenedorBoxJugar">
+    <div id="boxJugar">
+      <button class="btn btn-danger" id="botonJugar">Jugar!</button>
+    </div>
+  </div>
     <div class="contenedorJugar enfoque">
+      <div id="SeleccionJugador">
+        <table id="tableroJugador" class="tablero">      
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        <tr>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+          <td>X</td>
+        </tr>
+        </table>
+      <div id="contenedrorBarcosRestantes">Barcos restantes:
+        <div class="barcosRestantes">
+          <table>
+            <ul>
+              <li>Portaviones</li>
+              <li>Acorazado</li>
+              <li>Submarino</li>
+              <li>Barco normal</li>
+            </ul>
+          </table>
+        </div>
+      </div>
+      <div><button id="botonSiguiente" class="btn btn-danger">Siguiente</button></div>
+      </div>
+      <div id="contenedorTableros">
+        <div>Tablero Jugador </div>       
         <table id="tableroJugador" class="tablero">      
           <tr>
             <td class="barco"><img src="/img/explosion.png" class="explota" alt=""></td>
@@ -144,12 +287,14 @@
             <td>X</td>
           </tr>
         </table>
+        
+        <div>Tablero Oponente</div>
         <table id="tableroComputadora" class="tablero">      
           <tr>
+            <td class="barco"><img src="/img/explosion.png" class="explota" alt=""></td>
             <td>X</td>
             <td>X</td>
-            <td>X</td>
-            <td>X</td>
+            <td class="barco">X</td>
             <td>X</td>
             <td>X</td>
             <td>X</td>
@@ -266,6 +411,8 @@
             <td>X</td>
           </tr>
         </table>
+      </div>
+        
   </div>
     <footer></footer>
 
