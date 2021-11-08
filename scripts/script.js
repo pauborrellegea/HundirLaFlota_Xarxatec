@@ -3,14 +3,16 @@
 
 
 import Barcos from "./barcos.js";
-
+//Iniciamos con las capas deshabilitadas para el usuario
 document.getElementById("contenedorTableros").style.visibility="hidden";
 document.getElementById("SeleccionJugador").style.visibility="hidden";
-
+//Cuando pinchas al boton de Jugar quitamos la capa de la caja contenedora de Jugar y mostramos el tablero creado
+// para que el usuario coloque los barcos
 document.getElementById("botonJugar").addEventListener("click", function() {
     const list = document.getElementById("contenedorBoxJugar");
     list.parentNode.removeChild(list);
     document.getElementById("SeleccionJugador").style.visibility="visible";
+
     let cajaTabla = document.getElementById("SeleccionJugador");
     var x = document.getElementsByClassName("contenedorJugar");    
     for (var i = 0; i<x.length; i++) {
@@ -18,6 +20,7 @@ document.getElementById("botonJugar").addEventListener("click", function() {
      }
      crearTabla(10,"SeleccionJugador");
   });
+  //Una vez guardada la posicion de los barcos removemos la capa de Posicionar barcos y mostramos la de jugar
 document.getElementById("botonSiguiente").addEventListener("click", function() {
     const list = document.getElementById("SeleccionJugador");
     list.parentNode.removeChild(list);
