@@ -48,7 +48,9 @@ a{
     float: left;
 }
 .contenedorJugar{
-    width: 100%;  
+    width: 100%;
+    margin-top: 2rem;  
+    
 }
 .enfoque{
     filter: blur(6px);
@@ -90,10 +92,14 @@ ul li:first-child {
     color: green;
     font-weight: bold;
   }
-.tamanyoTableros>div{
-    text-align: center;
+.tamanyoTableros{
+    border: 3px solid brown;
 }
 #contenedorTableros{
     display: flex;
     justify-content: space-around;
+}
+h3{
+    border: 1px solid blue;
+    text-align: center;
 }
