@@ -11,10 +11,12 @@ document.getElementById("botonJugar").addEventListener("click", function() {
     const list = document.getElementById("contenedorBoxJugar");
     list.parentNode.removeChild(list);
     document.getElementById("SeleccionJugador").style.visibility="visible";
+    let cajaTabla = document.getElementById("SeleccionJugador");
     var x = document.getElementsByClassName("contenedorJugar");    
     for (var i = 0; i<x.length; i++) {
         x[i].classList.remove("enfoque");
      }
+     crearTabla(10,"SeleccionJugador");
   });
 document.getElementById("botonSiguiente").addEventListener("click", function() {
     const list = document.getElementById("SeleccionJugador");
@@ -22,7 +24,24 @@ document.getElementById("botonSiguiente").addEventListener("click", function() {
     document.getElementById("contenedorTableros").style.visibility="visible";
 });
 
+function crearTabla(rows,cajaTabla){
+    const tabla = document.createElement("table");
     
+    const td = document.createElement("td"); 
+    
+    tabla.setAttribute('id','tableroJugador');
+    tabla.setAttribute('class','tablero');
+    for(let i=0;i<rows;i++){
+        const tr = document.createElement("tr");
+        tabla.appendChild(tr);
+        for(let j=0;j<10;j++){
+            const td = document.createElement("td"); 
+            td.appendChild(document.createTextNode('X'))
+            tr.appendChild(td);
+        }
+    }
+    document.getElementById(cajaTabla).insertBefore(tabla,document.getElementById("SeleccionJugador").childNodes[0]);
+}
 
 var vidaJugador = 4;
 var vidaIA = 4;
