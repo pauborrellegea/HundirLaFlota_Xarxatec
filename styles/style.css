@@ -40,18 +40,22 @@ a{
 }
 .tablero{
     background-color:cadetblue;
-    display:grid;
-    grid-template-columns: auto 2fr;
 }
 #tableroJugador{
-    grid-row: 1;
+    float: left;
+    width: 35%;
 }
 #tableroComputadora{
-    grid-row: 2;
+    float: left;
+    width: 35%;
 }
 .contenedorJugar{
     width: 100%;
-    /* filter: blur(6px); */
+    float: left;
+    
+}
+.enfoque{
+    filter: blur(6px);
 }
 #boxJugar{
     width: 40em;
