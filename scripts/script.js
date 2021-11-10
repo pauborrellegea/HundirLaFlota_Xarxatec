@@ -48,10 +48,21 @@ function crearTabla(rows,cajaTabla){
             const td = document.createElement("td"); 
             td.appendChild(document.createTextNode('X'))
             td.setAttribute('id','x'+i+'y'+j)
+            td.setAttribute('class','casilla');
             tr.appendChild(td);
         }
     }
     document.getElementById(cajaTabla).insertBefore(tabla,document.getElementById("SeleccionJugador").childNodes[0]);
+    colocarCasillas();
+}
+function colocarCasillas(){
+    let casilla=document.getElementsByClassName("casilla");
+    for(let i=0;i<casilla.length;i++){
+        console.log(casilla[i]);
+        casilla[i].addEventListener("click",function(){
+            alert("Soy la casilla: "+ casilla[i].getAttribute("id"));
+    });
+}
 }
 
 function jugar(){    

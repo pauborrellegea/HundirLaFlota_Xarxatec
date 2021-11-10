@@ -32,7 +32,7 @@ a{
 }
 .logoHundir{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .github{
     width:3em;
