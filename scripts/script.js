@@ -53,9 +53,9 @@ function crearTabla(rows,cajaTabla){
         }
     }
     document.getElementById(cajaTabla).insertBefore(tabla,document.getElementById("SeleccionJugador").childNodes[0]);
-    colocarCasillas();
+    infoCasillaPulsada();
 }
-function colocarCasillas(){
+function infoCasillaPulsada(){
     let casilla=document.getElementsByClassName("casilla");
     for(let i=0;i<casilla.length;i++){
         console.log(casilla[i]);
