@@ -62,13 +62,17 @@ function infoCasillaPulsada(){
     for(let i=0;i<casilla.length;i++){
         casilla[i].addEventListener("click",function(){
             if(turnoColocacion>0){ colocarBarcosJugador(casilla[i].getAttribute("id"));}
-            else{ataqueIA()};
+            else{
+                ataqueJugador(casilla[i].getAttribute("id"))
+                //Aqui debe desavtivarse la casilla que ha pulsado el jugador
+            };
+
     });}
 }
 
 function jugar(){    
     inicioPartida(10,10);
-    mostrarTablero(tableroJugador);
+    mostrarTablero(tableroIA);
 }
 
 function crearTablero(filas, columnas){
@@ -105,7 +109,9 @@ function mostrarTablero(tablero)
         {
             aux+= tablero[x][y] + '\t';
         }
-    }  
+        console.log(aux); 
+    } 
+    
 }
 
 function inicioPartida(filas, columnas)
@@ -233,16 +239,45 @@ function colocarBarcosJugador(coordenadas)
             turnoColocacion--;
         }
         else{alert("No se puede colocar");
-
         }
     }
-    
 }
+
+function ataqueJugador(coordenadas)
+{
+    var xAtaque = parseInt(coordenadas[1]);
+    var yAtaque = parseInt(coordenadas[3]);
+
+    //console.log(tableroIA[xAtaque][yAtaque]);
+
+    if(tableroIA[xAtaque][yAtaque] == 'P'){ alert("Portaviones tocado");vidaIA--;}
+    else if(tableroIA[xAtaque][yAtaque] == 'S'){ alert("Submarino tocado");vidaIA--;}
+    else if(tableroIA[xAtaque][yAtaque] == 'C'){ alert("Acorazado tocado");vidaIA--;}
+    else if(tableroIA[xAtaque][yAtaque] == 'B'){ alert("Barco pequeño tocado y hundido");vidaIA--;}
+    else{alert("Agua");}
+
+    //condicion de victoria
+
+    if(vidaIA == 0){ alert("Ganaste");}
+    else{ ataqueIA();}
+}
+
 
 function ataqueIA()
 {
-     var posicionAtaque = arrayDeAtaques[parseInt(random(0, arrayDeAtaques.length))];
+    var posicionAtaque = arrayDeAtaques[parseInt(random(0, arrayDeAtaques.length))];
     var casillaAtacada = arrayDeAtaques[posicionAtaque];
+    arrayDeAtaques.splice(posicionAtaque, 1);
+    var xAtaque = casillaAtacada[0];
+    var yAtaque = casillaAtacada[1];
 
+    //console.log(tableroIA[xAtaque][yAtaque]);
 
+    if(tableroJugador[xAtaque][yAtaque] == 'P'){ alert("Portaviones tocado"); vidaJugador--;}
+    else if(tableroJugador[xAtaque][yAtaque] == 'S'){ alert("Submarino tocado"); vidaJugador--;}
+    else if(tableroJugador[xAtaque][yAtaque] == 'C'){ alert("Acorazado tocado");vidaJugador--;}
+    else if(tableroJugador[xAtaque][yAtaque] == 'B'){ alert("Barco pequeño tocado y hundido");vidaJugador--;}
+    else{alert("Agua");}
+
+    if(vidaJugador == 0){ alert("Perdiste");}
 }
