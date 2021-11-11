@@ -8,6 +8,7 @@ var turnoColocacion = 4;
 var tableroJugador = undefined;
 var tableroIA = undefined;
 var indicadores = new Array('B','S', 'C', 'P');
+var arrayDeAtaques = new Array();
 
 jugar();
 
@@ -59,15 +60,15 @@ function crearTabla(rows,cajaTabla){
 function infoCasillaPulsada(){
     let casilla=document.getElementsByClassName("casilla");
     for(let i=0;i<casilla.length;i++){
-        //console.log(casilla[i]);
         casilla[i].addEventListener("click",function(){
-            colocarBarcosJugador(casilla[i].getAttribute("id"));
-    });
-}
+            if(turnoColocacion>0){ colocarBarcosJugador(casilla[i].getAttribute("id"));}
+            else{ataqueIA()};
+    });}
 }
 
 function jugar(){    
     inicioPartida(10,10);
+    mostrarTablero(tableroJugador);
 }
 
 function crearTablero(filas, columnas){
@@ -79,7 +80,6 @@ function crearTablero(filas, columnas){
     {
         matriz[i] = new Array(columnas);
     }
-    
 
     return matriz;
 }
@@ -91,7 +91,6 @@ function inicializarTablero(matriz, estado){
         for(var y = 0; y <matriz[x].length; y++)
         {
             matriz[x][y] = estado;
-            
         }   
     }
 }
@@ -106,7 +105,6 @@ function mostrarTablero(tablero)
         {
             aux+= tablero[x][y] + '\t';
         }
-        console.log(aux);   
     }  
 }
 
@@ -118,38 +116,43 @@ function inicioPartida(filas, columnas)
     inicializarTablero(tableroJugador, 'a');
     inicializarTablero(tableroIA, 'a');
 
-
     colocarBarcosIA(); 
+    inicializarAtaques();
 }
 
+function inicializarAtaques(){
+    
+    var pos = '';
+
+    for(var i = 0; i<100; i++){
+        if(i < 10 ){pos = '0' + i.toString();}
+        else{pos = i.toString();}
+
+        arrayDeAtaques.push(pos);
+    }
+}
 
 function colocarBarcosIA(){
-    var posicionX, posicionY, orientacion, longitud;
-    var posInicialX = 10;
-    var posInicialY = 10;
-    var posiciones;
+    var orientacion, longitud, posiciones;
 
     for(var i = 4; i > 0; i--){
         longitud = i;
-        orientacion = parseInt(random(0,2)); //devuelve 0 (horizontal) y 1 (vertical)
+        orientacion = parseInt(random(0,2)); // 0 (horizontal) y 1 (vertical)
 
         posiciones = comprobarPosiciones(orientacion, longitud);
 
         colocarBarcos(posiciones[0], posiciones[1], indicadores[longitud-1], longitud, orientacion);
     }
-
-    
 }
 
 function comprobarPosiciones(orientacion, longitud){
     var noPosicion = true;
-
     var posInicialX = undefined;
     var posInicialY = undefined;
     while(noPosicion)
     {
-        posInicialX = parseInt(random(0, 10)); //devuelve la posicion donde irá el extremo del barco
-        posInicialY = parseInt(random(0, 10)); //devuelve la posicion donde irá el extremo del barco
+        posInicialX = parseInt(random(0, 10)); 
+        posInicialY = parseInt(random(0, 10)); 
         
         if(orientacion == 0){
             if(posInicialY + longitud < 10)
@@ -182,11 +185,16 @@ function comprobarCasillaVacia(posInicialX, posInicialY, longitud, orientacion){
 }
 
 function comprobarCasillaVaciaJugador(posInicialX, posInicialY, longitud, orientacion){
-    var nuevaX, nuevaY;  
+    var nuevaX, nuevaY;
+    if(orientacion == 0){
+        if(posInicialX + longitud > 10){ return false;}
+    }
+    else{
+        if(posInicialY + longitud > 10){ return false;}
+    }
     for(var i = 0; i < longitud; i++){
         nuevaX = orientacion==1?posInicialX+i:posInicialX;
         nuevaY = orientacion==0?posInicialY+i:posInicialY;
-        console.log(tableroJugador[nuevaX][nuevaY]);
         if(tableroJugador[nuevaX][nuevaY] != 'a'){return false;}
     }
     return true;
@@ -199,14 +207,8 @@ function random(min, max) {
 function colocarBarcos(X, Y, indicador, longitud, orientacion)
 {
     for(var i = 0; i < longitud; i++){
-        if(orientacion == 1){
-
-        tableroIA[X+i][Y] = indicador;
-    }
-    else
-        {
-            tableroIA[X][Y+i] = indicador;
-        }
+        if(orientacion == 1) { tableroIA[X+i][Y] = indicador; }
+        else { tableroIA[X][Y+i] = indicador;}
     }
 }
 
@@ -234,6 +236,13 @@ function colocarBarcosJugador(coordenadas)
 
         }
     }
-    mostrarTablero(tableroJugador);
+    
 }
 
+function ataqueIA()
+{
+     var posicionAtaque = arrayDeAtaques[parseInt(random(0, arrayDeAtaques.length))];
+    var casillaAtacada = arrayDeAtaques[posicionAtaque];
+
+
+}
