@@ -1,4 +1,3 @@
-//funcion para crear tablas con document.createElement("tr") en el document.querySelector(#tableroJugador)
 //En la pantalla de selección de barcos, hacer un remove child de Ul->Li para pillar la primera posición. Habilitar el boton de Siguiente cuando se haya terminado de colocar cada barco.
 import Barcos from "./barcos.js";
 
@@ -31,6 +30,8 @@ document.getElementById("botonJugar").addEventListener("click", function() {
   });
   //Una vez guardada la posicion de los barcos removemos la capa de Posicionar barcos y mostramos la de jugar
 document.getElementById("botonSiguiente").addEventListener("click", function() {
+    // let tablaJugador = document.getElementById("tableroJugador");
+    // console.log(tablaJugador);
     const list = document.getElementById("SeleccionJugador");
     list.parentNode.removeChild(list);
     document.getElementById("contenedorTableros").style.visibility="visible";
@@ -63,7 +64,8 @@ function infoCasillaPulsada(){
         casilla[i].addEventListener("click",function(){
             if(turnoColocacion>0){ colocarBarcosJugador(casilla[i].getAttribute("id"));}
             else{
-                ataqueJugador(casilla[i].getAttribute("id"))
+                ataqueJugador(casilla[i].getAttribute("id"));
+
                 //Aqui debe desavtivarse la casilla que ha pulsado el jugador
             };
 
@@ -237,6 +239,8 @@ function colocarBarcosJugador(coordenadas)
                 else{ tableroJugador[x][y+i] = indicadores[turnoColocacion-1];}
             }
             turnoColocacion--;
+            let barcosRestantes = document.getElementById("barcosRestantes");
+            barcosRestantes.removeChild(barcosRestantes.childNodes[0]);
         }
         else{alert("No se puede colocar");
         }

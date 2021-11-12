@@ -17,9 +17,15 @@ td.barco:hover{
     width:inherit;
     pointer-events: none;
 }
+.agua{
+    width:inherit;
+    pointer-events: none;
+    background-color: forestgreen;
+}
 
 .barco{
     background-color:blue;
+    pointer-events: none;
 }
 table{
     margin: 2rem;
