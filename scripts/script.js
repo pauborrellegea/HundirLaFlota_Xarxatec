@@ -33,12 +33,13 @@ document.getElementById("botonSiguiente").addEventListener("click", function() {
     let tablaJugador = document.getElementById("tableroJugador");
     console.log(tablaJugador);
     const list = document.getElementById("SeleccionJugador");
-    let nuevaTablaJugador = list.cloneNode(true);
+    const lista = document.getElementById("tableroJugador");
+    let nuevaTablaJugador = lista.cloneNode(true);
     list.parentNode.removeChild(list);
     document.getElementById("contenedorTableros").style.visibility="visible";
     let claseTablero = document.getElementsByClassName("tamanyoTableros");
     for(let i=0;i<claseTablero.length;i++){
-        claseTablero[i].appendChild(nuevaTablaJugador);    
+        claseTablero[0].prepend(nuevaTablaJugador);    
 }
 });
 
