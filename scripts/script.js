@@ -39,7 +39,7 @@ document.getElementById("botonSiguiente").addEventListener("click", function() {
     document.getElementById("contenedorTableros").style.visibility="visible";
     let claseTablero = document.getElementsByClassName("tamanyoTableros");
     for(let i=0;i<claseTablero.length;i++){
-        claseTablero[0].prepend(nuevaTablaJugador);    
+        claseTablero[0].insertBefore(nuevaTablaJugador,document.getElementById("aqui"));    
 }
 });
 
